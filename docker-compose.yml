@@ -1,0 +1,10 @@
+services:
+  postgres:
+    image: postgres
+    container_name: desafio_tecnico
+    environment:
+      POSTGRES_USER: desafiotecnico
+      POSTGRES_PASSWORD: desafiopassword
+      POSTGRES_DB: desafiotecnico
+    ports:
+      - "5433:5432"
