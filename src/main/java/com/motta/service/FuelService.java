@@ -43,7 +43,7 @@ public class FuelService {
         fuelRepository.delete(fuel);
     }
 
-    private Fuel findById(String fuelId){
+    public Fuel findById(String fuelId){
         return fuelRepository.findById(fuelId)
                 .orElseThrow(() -> new FuelNotFoundException("Fuel not found with id: " + fuelId));
     }
