@@ -2,12 +2,14 @@ package com.motta.modal;
 
 import com.motta.dto.fuelpump.FuelPumpRequest;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Entity
 @Table(name = "fuel_pumps")
