@@ -1,8 +1,7 @@
 package com.motta.controller;
 
-import com.motta.dto.FuelRequest;
-import com.motta.dto.FuelResponse;
-import com.motta.repository.FuelRepository;
+import com.motta.dto.fuel.FuelRequest;
+import com.motta.dto.fuel.FuelResponse;
 import com.motta.service.FuelService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -30,6 +29,12 @@ public class FuelController {
     public ResponseEntity<List<FuelResponse>> getAllFuels() {
         List<FuelResponse> fuels = fuelService.getAllFuels();
         return ResponseEntity.ok(fuels);
+    }
+
+    @PutMapping("/{fuelId}")
+    public ResponseEntity<FuelResponse> updateFuel(@Validated @RequestBody FuelRequest fuelRequest, @PathVariable String fuelId){
+        FuelResponse response = fuelService.updateFuel(fuelRequest, fuelId);
+        return ResponseEntity.ok(response);
     }
 
 }

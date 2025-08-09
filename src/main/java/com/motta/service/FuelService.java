@@ -1,7 +1,8 @@
 package com.motta.service;
 
-import com.motta.dto.FuelRequest;
-import com.motta.dto.FuelResponse;
+import com.motta.dto.fuel.FuelRequest;
+import com.motta.dto.fuel.FuelResponse;
+import com.motta.exception.FuelNotFoundException;
 import com.motta.modal.Fuel;
 import com.motta.repository.FuelRepository;
 import jakarta.transaction.Transactional;
@@ -27,6 +28,18 @@ public class FuelService {
 
     public List<FuelResponse> getAllFuels() {
         return fuelRepository.findAll().stream().map(FuelResponse::new).toList();
+    }
+
+    @Transactional
+    public FuelResponse updateFuel(FuelRequest fuelRequest, String fuelId){
+        Fuel fuel = this.findById(fuelId);
+        fuel.update(fuelRequest);
+        return new FuelResponse(fuel);
+    }
+
+    private Fuel findById(String fuelId){
+        return fuelRepository.findById(fuelId)
+                .orElseThrow(() -> new FuelNotFoundException("Fuel not found with id: " + fuelId));
     }
 
 }

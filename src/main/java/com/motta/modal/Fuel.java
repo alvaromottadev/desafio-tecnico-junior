@@ -1,6 +1,6 @@
 package com.motta.modal;
 
-import com.motta.dto.FuelRequest;
+import com.motta.dto.fuel.FuelRequest;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,6 +26,11 @@ public class Fuel {
 
     @OneToMany(mappedBy = "fuel")
     private List<FuelPump> fuelPumps;
+
+    public void update(FuelRequest fuelRequest){
+        this.name = fuelRequest.name();
+        this.pricePerLiter = fuelRequest.pricePerLiter();
+    }
 
     public Fuel(FuelRequest fuelRequest){
         this.name = fuelRequest.name();
