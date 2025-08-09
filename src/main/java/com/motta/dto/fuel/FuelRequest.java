@@ -1,4 +1,4 @@
-package com.motta.dto;
+package com.motta.dto.fuel;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

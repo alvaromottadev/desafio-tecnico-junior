@@ -1,4 +1,4 @@
-package com.motta.dto;
+package com.motta.dto.fuel;
 
 import com.motta.modal.Fuel;
 
