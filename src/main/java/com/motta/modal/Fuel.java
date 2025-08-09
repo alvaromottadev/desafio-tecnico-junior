@@ -1,10 +1,15 @@
 package com.motta.modal;
 
+import com.motta.dto.FuelRequest;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.util.List;
 
+@NoArgsConstructor
+@Getter
 @Entity
 @Table(name = "fuels")
 public class Fuel {
@@ -21,5 +26,10 @@ public class Fuel {
 
     @OneToMany(mappedBy = "fuel")
     private List<FuelPump> fuelPumps;
+
+    public Fuel(FuelRequest fuelRequest){
+        this.name = fuelRequest.name();
+        this.pricePerLiter = fuelRequest.pricePerLiter();
+    }
 
 }
