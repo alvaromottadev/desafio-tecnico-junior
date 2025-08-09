@@ -2,6 +2,7 @@ package com.motta.service;
 
 import com.motta.dto.fuelpump.FuelPumpRequest;
 import com.motta.dto.fuelpump.FuelPumpResponse;
+import com.motta.exception.FuelPumpNotFoundException;
 import com.motta.modal.Fuel;
 import com.motta.modal.FuelPump;
 import com.motta.repository.FuelPumpRepository;
@@ -33,6 +34,21 @@ public class FuelPumpService {
         return fuelPumpRepository.findAll().stream()
                 .map(FuelPumpResponse::new)
                 .toList();
+    }
+
+    @Transactional
+    public FuelPumpResponse updateFuelPump(FuelPumpRequest fuelPumpRequest, String fuelPumpId) {
+        FuelPump fuelPump = this.findById(fuelPumpId);
+        Fuel fuel = fuelService.findById(fuelPumpRequest.fuelId());
+
+        fuelPump.update(fuelPumpRequest, fuel);
+
+        return new FuelPumpResponse(fuelPump);
+    }
+
+    public FuelPump findById(String fuelPumpId){
+        return fuelPumpRepository.findById(fuelPumpId)
+                .orElseThrow(() -> new FuelPumpNotFoundException("Fuel Pump not found with id: " + fuelPumpId));
     }
 
 }

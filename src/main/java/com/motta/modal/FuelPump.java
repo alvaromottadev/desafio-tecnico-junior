@@ -27,6 +27,11 @@ public class FuelPump {
     @OneToMany(mappedBy = "fuelPump")
     private List<FuelSupply> fuelSupplies;
 
+    public void update(FuelPumpRequest fuelPumpRequest, Fuel fuel) {
+        this.name = fuelPumpRequest.name();
+        this.fuel = fuel;
+    }
+
     public FuelPump(FuelPumpRequest fuelPumpRequest, Fuel fuel){
         this.name = fuelPumpRequest.name();
         this.fuel = fuel;

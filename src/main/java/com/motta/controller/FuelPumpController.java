@@ -31,4 +31,10 @@ public class FuelPumpController {
         return ResponseEntity.ok(fuelPumps);
     }
 
+    @PutMapping("/{fuelPumpId}")
+    public ResponseEntity<FuelPumpResponse> updateFuelPump(@Validated @RequestBody FuelPumpRequest fuelPumpRequest, @PathVariable String fuelPumpId) {
+        FuelPumpResponse response = fuelPumpService.updateFuelPump(fuelPumpRequest, fuelPumpId);
+        return ResponseEntity.ok(response);
+    }
+
 }
