@@ -2,6 +2,8 @@ package com.motta.modal;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "fuel_pumps")
 public class FuelPump {
@@ -17,4 +19,6 @@ public class FuelPump {
     @JoinColumn(nullable = false)
     private Fuel fuel;
 
+    @OneToMany(mappedBy = "fuelPump")
+    private List<FuelSupply> fuelSupplies;
 }
