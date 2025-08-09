@@ -37,9 +37,16 @@ public class FuelService {
         return new FuelResponse(fuel);
     }
 
+    @Transactional
+    public void deleteFuel(String fuelId){
+        Fuel fuel = this.findById(fuelId);
+        fuelRepository.delete(fuel);
+    }
+
     private Fuel findById(String fuelId){
         return fuelRepository.findById(fuelId)
                 .orElseThrow(() -> new FuelNotFoundException("Fuel not found with id: " + fuelId));
     }
+
 
 }

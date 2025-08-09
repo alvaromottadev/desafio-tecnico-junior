@@ -37,4 +37,10 @@ public class FuelController {
         return ResponseEntity.ok(response);
     }
 
+    @DeleteMapping("/{fuelId}")
+    public ResponseEntity<Void> deleteFuel(@PathVariable String fuelId) {
+        fuelService.deleteFuel(fuelId);
+        return ResponseEntity.noContent().build();
+    }
+
 }
