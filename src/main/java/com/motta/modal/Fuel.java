@@ -3,6 +3,7 @@ package com.motta.modal;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 @Table(name = "fuels")
@@ -17,5 +18,8 @@ public class Fuel {
 
     @Column(nullable = false)
     private BigDecimal pricePerLiter;
+
+    @OneToMany(mappedBy = "fuel")
+    private List<FuelPump> fuelPumps;
 
 }
