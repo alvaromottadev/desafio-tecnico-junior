@@ -46,6 +46,12 @@ public class FuelPumpService {
         return new FuelPumpResponse(fuelPump);
     }
 
+    @Transactional
+    public void deleteFuelPump(String fuelPumpId) {
+        FuelPump fuelPump = this.findById(fuelPumpId);
+        fuelPumpRepository.delete(fuelPump);
+    }
+
     public FuelPump findById(String fuelPumpId){
         return fuelPumpRepository.findById(fuelPumpId)
                 .orElseThrow(() -> new FuelPumpNotFoundException("Fuel Pump not found with id: " + fuelPumpId));
