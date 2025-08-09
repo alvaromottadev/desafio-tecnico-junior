@@ -7,6 +7,8 @@ import com.motta.repository.FuelRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class FuelService {
 
@@ -21,6 +23,10 @@ public class FuelService {
         Fuel fuel = new Fuel(fuelRequest);
         fuelRepository.save(fuel);
         return new FuelResponse(fuel);
+    }
+
+    public List<FuelResponse> getAllFuels() {
+        return fuelRepository.findAll().stream().map(FuelResponse::new).toList();
     }
 
 }

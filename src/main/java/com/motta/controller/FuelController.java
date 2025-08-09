@@ -2,13 +2,13 @@ package com.motta.controller;
 
 import com.motta.dto.FuelRequest;
 import com.motta.dto.FuelResponse;
+import com.motta.repository.FuelRepository;
 import com.motta.service.FuelService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/fuels")
@@ -21,9 +21,15 @@ public class FuelController {
     }
 
     @PostMapping
-    public ResponseEntity<?> createFuel(@Validated @RequestBody FuelRequest fuelRequest) {
+    public ResponseEntity<FuelResponse> createFuel(@Validated @RequestBody FuelRequest fuelRequest) {
         FuelResponse response = fuelService.createFuel(fuelRequest);
-        return ResponseEntity.ok(response);
+        return ResponseEntity.status(201).body(response);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<FuelResponse>> getAllFuels() {
+        List<FuelResponse> fuels = fuelService.getAllFuels();
+        return ResponseEntity.ok(fuels);
     }
 
 }
