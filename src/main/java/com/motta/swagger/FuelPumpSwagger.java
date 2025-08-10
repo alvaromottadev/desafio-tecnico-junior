@@ -24,7 +24,7 @@ public interface FuelPumpSwagger {
                     @ApiResponse(responseCode = "201", description = "Fuel pump created successfully",
                             content = @Content(mediaType = "application/json", schema = @Schema(
                                     implementation = FuelPumpResponse.class,
-                                    example = "{\"id\":\"1a2b3c4d\",\"name\":\"PUMP-01\",\"fuel\":{\"id\":\"123e4567-e89b-12d3-a456-426614174000\",\"name\":\"Gasoline\",\"pricePerLiter\":5.49}}"
+                                    example = "{\"id\":\"b7e6a1c2-3d4f-4e5a-8b2c-1d2e3f4a5b6c\",\"name\":\"PUMP-01\",\"fuel\":{\"id\":\"123e4567-e89b-12d3-a456-426614174000\",\"name\":\"Gasoline\",\"pricePerLiter\":5.49}}"
                             ))),
                     @ApiResponse(responseCode = "400", description = "Bad request (e.g., validation errors)",
                             content = @Content(mediaType = "application/json", schema = @Schema(
@@ -44,7 +44,7 @@ public interface FuelPumpSwagger {
                     @ApiResponse(responseCode = "200", description = "List of fuel pumps returned successfully",
                             content = @Content(mediaType = "application/json", schema = @Schema(
                                     implementation = FuelPumpResponse.class,
-                                    example = "[{\"id\":\"1a2b3c4d\",\"name\":\"PUMP-01\",\"fuel\":{\"id\":\"123e4567-e89b-12d3-a456-426614174000\",\"name\":\"Gasoline\",\"pricePerLiter\":5.49}}]"
+                                    example = "[{\"id\":\"b7e6a1c2-3d4f-4e5a-8b2c-1d2e3f4a5b6c\",\"name\":\"PUMP-01\",\"fuel\":{\"id\":\"123e4567-e89b-12d3-a456-426614174000\",\"name\":\"Gasoline\",\"pricePerLiter\":5.49}}]"
                             )))
             }
     )
@@ -59,7 +59,7 @@ public interface FuelPumpSwagger {
                     @ApiResponse(responseCode = "200", description = "Fuel pump updated successfully",
                             content = @Content(mediaType = "application/json", schema = @Schema(
                                     implementation = FuelPumpResponse.class,
-                                    example = "{\"id\":\"1a2b3c4d\",\"name\":\"PUMP-01-UPDATED\",\"fuel\":{\"id\":\"123e4567-e89b-12d3-a456-426614174000\",\"name\":\"Gasoline\",\"pricePerLiter\":5.49}}"
+                                    example = "{\"id\":\"b7e6a1c2-3d4f-4e5a-8b2c-1d2e3f4a5b6c\",\"name\":\"PUMP-01-UPDATED\",\"fuel\":{\"id\":\"123e4567-e89b-12d3-a456-426614174000\",\"name\":\"Gasoline\",\"pricePerLiter\":5.49}}"
                             ))),
                     @ApiResponse(responseCode = "404", description = "Fuel pump not found",
                             content = @Content(mediaType = "application/json", schema = @Schema(
