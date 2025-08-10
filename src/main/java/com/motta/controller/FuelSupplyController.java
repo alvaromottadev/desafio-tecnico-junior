@@ -3,6 +3,7 @@ package com.motta.controller;
 import com.motta.dto.fuelsupply.FuelSupplyRequest;
 import com.motta.dto.fuelsupply.FuelSupplyResponse;
 import com.motta.service.FuelSupplyService;
+import com.motta.swagger.FuelSupplySwagger;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -11,7 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/fuelsupplies")
-public class FuelSupplyController {
+public class FuelSupplyController implements FuelSupplySwagger {
 
     private final FuelSupplyService fuelSupplyService;
 
